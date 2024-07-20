@@ -86,9 +86,8 @@ def mang_2(a, b, data_type):
         file.write('\n')  # New line after each row
     return array
 
-def xau():
+def xau(a, b):
     print('Xau dai khoang [a,b]')
-    a, b = lay_2_so()
     length = random.randint(a, b)
     result = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(length))
     file.write(f'{result}\n')
@@ -127,7 +126,7 @@ def ui():
             print('Mang 2 chieu:', result)
     elif choice == 4:
         for _ in range(test):
-            result = xau()
+            result = xau(a,b)
             print('Xau da tao:', result)
     else:
         print('Chuc nang chua duoc ho tro.')
