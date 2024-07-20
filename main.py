@@ -71,7 +71,11 @@ def mang_1(a, b, data_type, decimals):
     while True:
         try:
             N = int(input('So luong phan tu N: '))
+            if N <= 0:
+                print("So luong phan tu N phai lon hon 0.")
+                continue
             array = []
+            file.write(f'{N}\n')  # Write the size of the array
             for _ in range(N):
                 if data_type == 'int':
                     element = random.randint(a, b)
@@ -80,11 +84,12 @@ def mang_1(a, b, data_type, decimals):
                     element = round(element, decimals)
                     element = f"{element:.{decimals}f}"
                 array.append(element)
-                file.write(f'{element} ')
-            file.write(f'\n')
+                file.write(f'{element} ')  # Write each element separated by space
+            file.write('\n')  # New line after the array
             return array
         except ValueError:
             print("Invalid input. Please enter a valid integer for N.")
+
 
 def mang_2(a, b, data_type, decimals):
     while True:
@@ -134,7 +139,7 @@ def ui():
     else:
         test = 1
 
-    print("|                     Dang bai                     |:")
+    print("|                     Dang bai                     |")
     print("|1. Tinh toan N                                    |")
     print("|2. Mang 1 chieu                                   |")
     print("|3. Mang 2 chieu                                   |")
