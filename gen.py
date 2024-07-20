@@ -32,7 +32,7 @@ def lay_2_so():
     return a, b
 
 def lay_so_thap_phan():
-    return int(input('Nhap so chu so thap phan: '))
+    return 2
 
 def format_float(value, decimals):
     formatted_value = f"{value:.{decimals}f}"
@@ -50,6 +50,7 @@ def tinh_toan(a, b, data_type):
 
 def mang_1(a, b, data_type):
     N = int(input('So luong phan tu N: '))
+    file.write(f'{N}')
     array = []
     for _ in range(N):
         if data_type == 'int':
@@ -75,12 +76,12 @@ def mang_2(a, b, data_type):
             if data_type == 'int':
                 element = random.randint(a, b)
             elif data_type == 'float':
-                decimals = lay_so_thap_phan()
+                decimals = 2
                 element = random.uniform(a, b)
                 element = round(element, decimals)
                 element = f"{element:.{decimals}f}"
             row.append(element)
-            file.write(f'{element} ')  # Write elements in a row separated by space
+            file.write(f'{element} ')
         array.append(row)
         file.write('\n')  # New line after each row
     return array
@@ -108,7 +109,6 @@ def ui():
     print("4. Dang Xau")
     choice = int(input('Chon dang bai (1-4): '))
 
-    # Get the range [a, b] and data type only once for all test cases
     a, b = lay_2_so()
     data_type = dang_ky_tu()
 

@@ -134,11 +134,11 @@ def ui():
     else:
         test = 1
 
-    print("Dang bai:")
-    print("1. Tinh toan N")
-    print("2. Mang 1 chieu")
-    print("3. Mang 2 chieu")
-    print("4. Dang Xau")
+    print("|                     Dang bai                     |:")
+    print("|1. Tinh toan N                                    |")
+    print("|2. Mang 1 chieu                                   |")
+    print("|3. Mang 2 chieu                                   |")
+    print("|4. Dang Xau                                       |")
     while True:
         try:
             choice = int(input('Chon dang bai (1-4): '))
@@ -150,7 +150,10 @@ def ui():
 
     a, b = lay_2_so()
     data_type = dang_ky_tu()
-    decimals = lay_so_thap_phan()
+    if(dang_ky_tu == 1):
+        decimals = lay_so_thap_phan()
+    else:
+        decimals = 0
 
     if choice == 1:
         for _ in range(test):
