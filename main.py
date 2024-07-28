@@ -7,7 +7,7 @@ os.makedirs(output_dir, exist_ok=True)
 
 # Generate a unique file name within the output directory
 seed = random.randint(1, 1000)
-file_path = os.path.join(output_dir, f'output{seed}.txt')
+file_path = os.path.join(output_dir, f'output{seed}.in')
 file = open(file_path, 'w')
 
 def number_of_test():
@@ -27,7 +27,7 @@ def dang_ky_tu():
                 0: 'int',
                 1: 'float',
             }
-            return switch.get(i, "Nhap lai")
+            return switch.get(i, 'int')
         except ValueError:
             print("Invalid input. Please enter 0 or 1.")
 
@@ -42,6 +42,8 @@ def lay_2_so():
             return a, b
         except ValueError:
             print("Invalid input. Please enter valid integers for a and b.")
+def rand_2_so(a,b):
+    return random.randint(a,b)
 
 def lay_so_thap_phan():
     while True:
@@ -67,10 +69,10 @@ def tinh_toan(a, b, data_type, decimals):
         element = f"{element:.{decimals}f}"  # Format float to specified decimal places
     return element
 
-def mang_1(a, b, data_type, decimals):
+def mang_1(a, b, c, d, data_type, decimals):
     while True:
         try:
-            N = int(input('So luong phan tu N: '))
+            N = random.randint(c, d)
             if N <= 0:
                 print("So luong phan tu N phai lon hon 0.")
                 continue
@@ -89,6 +91,9 @@ def mang_1(a, b, data_type, decimals):
             return array
         except ValueError:
             print("Invalid input. Please enter a valid integer for N.")
+
+
+
 
 
 def mang_2(a, b, data_type, decimals):
@@ -166,8 +171,10 @@ def ui():
             print('Gia tri da tao:', result)
             file.write(f'{result}\n')
     elif choice == 2:
+        print("So luong mang")
+        c,d = lay_2_so()
         for _ in range(test):
-            result = mang_1(a, b, data_type, decimals)
+            result = mang_1(a, b,c,d, data_type, decimals)
             print('Mang 1 chieu:', result)
     elif choice == 3:
         for _ in range(test):
